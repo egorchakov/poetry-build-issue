@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "poetry-build-issue"
+version = "0.1.0"
+description = ""
+authors = ["Evgenii Gorchakov <evgorchakov@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[build-system]
+requires = ["poetry-core", "setuptools"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.build]
+generate-setup-file = true
+script = "build.py"
