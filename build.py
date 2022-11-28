@@ -4,7 +4,8 @@ from setuptools.command.build_py import build_py
 
 class BuildPyCommand(build_py):
     def run(self):
-        Path('poetry_build_issue/generated/file.py').touch()
+        with open('poetry_build_issue/generated/file.py', 'w') as out:
+            print("#!/bin/env python3\nprint('Success!')\n", file=out)
         return super().run()
 
 
@@ -14,5 +15,7 @@ def build(setup_kwargs):
             "cmdclass": {
                 "build_py": BuildPyCommand,
             },
+            "scripts": ["poetry_build_issue/generated/file.py"]
         }
+
     )
